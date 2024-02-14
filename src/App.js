@@ -1,12 +1,17 @@
 import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import  Router   from './router';
 import MovieIndex from "./containers/MovieIndex";
 
 function App() {
   return (
-        <>
-        <h1>FEED</h1>
-        <MovieIndex/>
-        </>
+
+    <BrowserRouter>
+        <div className= "App"> 
+        
+        <Router />
+        </div>
+        </BrowserRouter>
      
    
   );

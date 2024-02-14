@@ -1,3 +1,5 @@
+
+
 export default function MovieCard({id,title,year,genre,plot,poster,rating}){
     return  <div className="movie-card">
     <p className = "title">{id}. {title}</p>

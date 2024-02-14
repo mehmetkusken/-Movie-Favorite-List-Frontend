@@ -4,11 +4,12 @@ import { connect } from "react-redux"
 import MovieCard from "../components/MovieCard"
 
 
+
 function MovieIndex({getMovies , movies}){
-   useEffect(() => {
-   movies.length === 0 && getMovies();
-  }, [movies])
-  return <div className="movie-card">{movies.map(movie => <MovieCard {...movie} key={movie.id}/>)}
+   useEffect(() => 
+   (getMovies)
+  , [getMovies])
+  return <div className="movie">{movies.map(movie => <MovieCard {...movie} key={movie.id}/>)}
   </div>
 } 
 
