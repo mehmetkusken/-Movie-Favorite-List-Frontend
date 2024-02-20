@@ -1,14 +1,16 @@
 import './App.css';
 import { BrowserRouter } from "react-router-dom";
 import  Router   from './router';
-import MovieIndex from "./containers/MovieIndex";
+import Navbar from './components/Navbar'
+import { connect } from "react-redux";
+import React, { useEffect } from 'react';
 
-function App() {
+function App(props) {
   return (
-
+    
     <BrowserRouter>
         <div className= "App"> 
-        
+        <Navbar/>
         <Router />
         </div>
         </BrowserRouter>
@@ -16,5 +18,6 @@ function App() {
    
   );
 }
+const mapStateToProps = (state) => ({user: state.user})
 
-export default App;
+export default connect(mapStateToProps)(App);
