@@ -50,3 +50,14 @@ export const submitSignup = (user) => {
    }
   }
 
+  export const autoLogin = () => {
+    return dispatch => fetch("http://[::1]:3000/me", {
+    headers: {
+            'Authorization': localStorage.token
+         }
+    })
+  
+    .then(res => renderResponse(res,dispatch))
+    }
+  
+

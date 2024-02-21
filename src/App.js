@@ -1,11 +1,14 @@
 import './App.css';
+import React, { useEffect } from 'react';
 import { BrowserRouter } from "react-router-dom";
 import  Router   from './router';
 import Navbar from './components/Navbar'
 import { connect } from "react-redux";
-import React, { useEffect } from 'react';
+import { autoLogin} from './redux/actionCreators'
 
-function App(props) {
+function App({autoLogin}) {
+
+  useEffect(() => {localStorage.token && autoLogin()}, [autoLogin])
   return (
     
     <BrowserRouter>
@@ -20,4 +23,4 @@ function App(props) {
 }
 const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { autoLogin})(App);
