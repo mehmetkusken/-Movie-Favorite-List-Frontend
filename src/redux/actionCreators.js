@@ -59,5 +59,12 @@ export const submitSignup = (user) => {
   
     .then(res => renderResponse(res,dispatch))
     }
+    
+  export const logout = () => {
+        return dispatch => {
+          localStorage.clear()
+          dispatch({type: "LOGOUT"})
+        }
+    }
   
 

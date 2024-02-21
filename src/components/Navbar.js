@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Link , useNavigate} from "react-router-dom";
+import { logout } from '../redux/actionCreators';
 export { Login } from '../components/Login';
 export { Signup } from '../components/Signup';
 
 
-
-
-
-
-
-
-const Navbar = ( { username } ) => {
+const Navbar = ( {logout, username } ) => {
 
   const navigate = useNavigate();
+
+  const logoutProccess = () => {
+    logout();
+    navigate('/');
+}
 
   const loggedInRender =  () => 
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,6 +30,11 @@ const Navbar = ( { username } ) => {
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item">
       <Link className="nav-link"  to='/movies'> Movies</Link>
+          </li>
+        </ul>
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      <li className="nav-item">
+      <Link className="nav-link"  onClick={logoutProccess}> Logout</Link>
           </li>
         </ul>
       </div>
@@ -70,4 +75,4 @@ return username ? loggedInRender() : loggedOutRender()
 
 const mapStateToProps = (state) => ({username: state.user.username})
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar);
