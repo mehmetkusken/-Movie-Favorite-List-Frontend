@@ -34,6 +34,11 @@ const Navbar = ( {logout, username } ) => {
         </ul>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item">
+      <Link className="nav-link"  to='/favorites'> Favorite Movies</Link>
+          </li>
+        </ul>
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      <li className="nav-item">
       <Link className="nav-link"  onClick={logoutProccess}> Logout</Link>
           </li>
         </ul>

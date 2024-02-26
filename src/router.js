@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import {connect} from 'react-redux';
 import { useEffect, useState } from "react";
 import MovieIndex from "./containers/MovieIndex";
+import Favorite from "./containers/Favorite";
 import Home from "./containers/Home";
 import MovieShow from "./components/MovieShow";
 import Login from './components/Login';
@@ -25,6 +26,7 @@ function Router(props) {
         <Route path='/movies/:id' element={<MovieShow/>} />
         <Route path='/movies' element={<MovieIndex />} />
         <Route exact path='/' element={<Home />} />
+        <Route exact path='/favorites' element={<Favorite />} />
         </> : <>
         <Route exact path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
